@@ -1,0 +1,12 @@
+name: Spawn-Heal-System
+author: Luca
+version: 1.0
+main: de.luca.SpawnHealSystem.main.Main
+
+commands:
+  heal:
+    description: Heile dich oder andere Spieler!
+  setspawn:
+    description: Setze den Spawn!
+  Spawn:
+    description: Teleportiere dich zum Spawn!
