@@ -2,7 +2,6 @@ package de.luca.SpawnHealSystem.commands;
 
 import de.luca.SpawnHealSystem.main.Main;
 import de.luca.SpawnHealSystem.util.ConfigUtils;
-import de.luca.SpawnHealSystem.util.CountDownManager;
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandExecutor;
 import org.bukkit.command.CommandSender;
@@ -14,23 +13,20 @@ public class SpawnCommand implements CommandExecutor{
 	@Override
 	public boolean onCommand(CommandSender sender, Command command, String label, String[] args) {
 		if (!(sender instanceof Player)){
-			sender.sendMessage(Main.getPrefix() + "§cDu bist kein Spieler!");
+			sender.sendMessage(Main.getPrefix() + "Â§cDu bist kein Spieler!");
 			return true;
 		}
 		final Player player = ((Player) sender);
 
 		if (args.length == 0){
-			if (ConfigUtils.file.exists()){
-				new CountDownManager().StartCount(player);
-
 
 			}else {
-				player.sendMessage(Main.getPrefix() + "§cDer §6Spawn §cwurde noch nicht gesetzt." +
-						"§cBitte setze den §6Spawn§c!");
+				player.sendMessage(Main.getPrefix() + "Â§cDer Â§6Spawn Â§cwurde noch nicht gesetzt." +
+						"Â§cBitte setze den Â§6SpawnÂ§c!");
 			}
 
 		}else {
-			player.sendMessage(Main.getPrefix() + "§cBitte benutze §6/spawn");
+			player.sendMessage(Main.getPrefix() + "Â§cBitte benutze Â§6/spawn");
 		}
 
 		return true;
