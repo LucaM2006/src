@@ -13,25 +13,25 @@ public class SetspawnCommand implements CommandExecutor{
 	@Override
 	public boolean onCommand(CommandSender sender, Command command, String label, String[] args) {
 		if(!(sender instanceof Player)) {
-			sender.sendMessage(Main.getPrefix()+ "§cDu bist kein Spieler!");
+			sender.sendMessage(Main.getPrefix()+ "Â§cDu bist kein Spieler!");
 			return true;
 		}
 		
 		
 		final Player player = (Player) sender;
 		
-		if(!player.hasPermission("tutorial.setspawn")) {
-			player.sendMessage(Main.getPrefix() + "§cDazu hast du keine Rechte!");
+		if(!player.hasPermission("Setspawn.setspawn")) {
+			player.sendMessage(Main.getPrefix() + "Â§cDazu hast du keine Rechte!");
 			return true;
 			
 		}
 		if (args.length == 0){
 			ConfigUtils.config.set("Spawn",player.getLocation());
 			ConfigUtils.savedata();
-			player.sendMessage(Main.getPrefix() + "§aDu hast den §6Spawn §aerfolgreich gesetzt.");
+			player.sendMessage(Main.getPrefix() + "Â§aDu hast den Â§6Spawn Â§aerfolgreich gesetzt.");
 		}else {
 
-			player.sendMessage(Main.getPrefix()+ "§cBitte benutze §6/setspawn");
+			player.sendMessage(Main.getPrefix()+ "Â§cBitte benutze Â§6/setspawn");
 		}
 		
 		
