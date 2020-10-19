@@ -1,6 +1,6 @@
 name: Spawn-Heal-System
 author: Luca
-version: 1.0
+version: 1.4
 main: de.luca.SpawnHealSystem.main.Main
 
 commands:
