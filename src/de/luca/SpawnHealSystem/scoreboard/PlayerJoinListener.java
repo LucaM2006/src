@@ -1,8 +1,3 @@
-// This class was created by LucaHD
-
-
-package de.luca.SpawnHealSystem.scoreboard;
-
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
 import org.bukkit.event.player.PlayerJoinEvent;
