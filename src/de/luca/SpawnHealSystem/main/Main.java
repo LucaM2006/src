@@ -1,52 +1,69 @@
-import de.luca.SpawnHealSystem.commands.SetspawnCommand;
-import de.luca.SpawnHealSystem.commands.SpawnCommand;
-import de.luca.SpawnHealSystem.scoreboard.PlayerJoinListener;
-import de.luca.SpawnHealSystem.scoreboard.ScoreboardHandler;
+import de.luca.SpawnhealSystem.commands.HealCommand;
+import de.luca.SpawnhealSystem.commands.SetspawnCommand;
+import de.luca.SpawnhealSystem.commands.SpawnCommand;
+import de.luca.SpawnhealSystem.scoreboard.PlayerJoinListener;
+import de.luca.SpawnhealSystem.scoreboard.ScoreboardHandler;
 import org.bukkit.Bukkit;
+import org.bukkit.command.CommandExecutor;
+import org.bukkit.event.Listener;
+import org.bukkit.plugin.Plugin;
 import org.bukkit.plugin.PluginManager;
 import org.bukkit.plugin.java.JavaPlugin;
 
-import de.luca.SpawnHealSystem.commands.HealCommand;
-
 public class Main extends JavaPlugin {
-	private static final String PREFIX = "§8[§6Spawn-Heal-System§8] ";
+    public static String PREFIX = "§6Spawn-Heal-System§8 ";
 
-	//Plugin Aktiviert!
+    //Plugin Aktiviert!
 
-	public void onEnable() {
-		Bukkit.getConsoleSender().sendMessage("§7========================================================");
-		Bukkit.getConsoleSender().sendMessage(Main.getPrefix() + "§8>> §aDas Spawn-Heal-System wurde aktiviert!");
-		Bukkit.getConsoleSender().sendMessage("§7========================================================");
+    public void onEnable() {
+        Bukkit.getConsoleSender().sendMessage("§7========================================================");
+        Bukkit.getConsoleSender().sendMessage(getPrefix() + "§8>> §aDas Spawn-Heal-System wird geladen...");
+        Bukkit.getConsoleSender().sendMessage("§7========================================================");
+        try {
+            register();
+        } catch (Exception e1) {
+            Bukkit.getConsoleSender().sendMessage("§7========================================================");
+            Bukkit.getConsoleSender().sendMessage(getPrefix() + "§8>> §4Das Spawn-Heal-System hat einen Fehler!");
+            Bukkit.getConsoleSender().sendMessage("§7========================================================");
+            return;
+        }
+        Bukkit.getConsoleSender().sendMessage("§7========================================================");
+        Bukkit.getConsoleSender().sendMessage(getPrefix() + "§8>> §aDas Spawn-Heal-System wurde erfolgreich geladen!");
+        Bukkit.getConsoleSender().sendMessage("§7========================================================");
+    }
 
-		//Command Registrieren!
+    //Commands Registrieren!
 
-		getCommand("heal").setExecutor(new HealCommand());
-		getCommand("setspawn").setExecutor(new SetspawnCommand());
-		getCommand("spawn").setExecutor(new SpawnCommand());
+    public void register() {
+        getCommand("heal").setExecutor(new HealCommand());
+        getCommand("setspawn").setExecutor(new SetspawnCommand());
+        getCommand("spawn").setExecutor(new SpawnCommand());
 
-		//Listeners Registrieren!
+        //Listeners Registrieren!
 
-		PluginManager pluginManager = Bukkit.getPluginManager();
-		Bukkit.getPluginManager().registerEvents(new PlayerJoinListener(), this);
-		new ScoreboardHandler().startAnimation();
-	}
+        PluginManager pluginManager = Bukkit.getPluginManager();
+        Bukkit.getPluginManager().registerEvents(new PlayerJoinListener(), this);
+        (new ScoreboardHandler()).startAnimation();
+    }
 
-	//Plugin Deaktiviert!
+    //Plugin Deaktiviert!
 
-	public void onDisable() {
-		Bukkit.getConsoleSender().sendMessage("§7========================================================");
-		Bukkit.getConsoleSender().sendMessage(Main.getPrefix() + "§8>> §4Das Spawn-Heal-System wurde deaktiviert!");
-		Bukkit.getConsoleSender().sendMessage("§7========================================================");
-	}
+    public void onDisable() {
+        Bukkit.getConsoleSender().sendMessage("§7========================================================");
+        Bukkit.getConsoleSender().sendMessage(getPrefix() + "§8>> §4Das Spawn-Heal-System wurde gestoppt!");
+        Bukkit.getConsoleSender().sendMessage("§7========================================================");
+    }
 
-	public static String getPrefix() {
-		return PREFIX;
-	}
+    //Prefix Registrieren!
 
-	//Configs
+    public static String getPrefix() {
+        return PREFIX;
+    }
 
-	private void loadConfig() {
-		getConfig().options().copyDefaults(true);
-		saveConfig();
-	}
+    //Configs Registrieren!
+
+    private void loadConfig() {
+        getConfig().options().copyDefaults(true);
+        saveConfig();
+    }
 }
