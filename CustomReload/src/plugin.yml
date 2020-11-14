@@ -1,6 +1,0 @@
-name: CustomReload
-author: Luca
-version: 1.0
-main: de.luca.customreload.main.CustomReload
-
-commands:
