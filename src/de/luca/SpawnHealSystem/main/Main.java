@@ -1,8 +1,8 @@
-import de.luca.SpawnhealSystem.commands.HealCommand;
-import de.luca.SpawnhealSystem.commands.SetspawnCommand;
-import de.luca.SpawnhealSystem.commands.SpawnCommand;
-import de.luca.SpawnhealSystem.scoreboard.PlayerJoinListener;
-import de.luca.SpawnhealSystem.scoreboard.ScoreboardHandler;
+import de.lucahdyt.SpawnhealSystem.commands.HealCommand;
+import de.lucahdyt.SpawnhealSystem.commands.SetspawnCommand;
+import de.lucahdyt.SpawnhealSystem.commands.SpawnCommand;
+import de.lucahdyt.SpawnhealSystem.scoreboard.PlayerJoinListener;
+import de.lucahdyt.SpawnhealSystem.scoreboard.ScoreboardHandler;
 import org.bukkit.Bukkit;
 import org.bukkit.command.CommandExecutor;
 import org.bukkit.event.Listener;
