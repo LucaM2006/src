@@ -1,4 +1,4 @@
-package de.luca.SpawnHealSystem.util;
+package de.lucahdyt.SpawnHealSystem.util;
 
 import java.io.File;
 import java.io.IOException;
